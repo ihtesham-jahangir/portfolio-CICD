@@ -84,7 +84,7 @@ function Middle() {
 my adaptability and skill in software development. From e-commerce platforms to data 
 visualization tools and personal websites, each project showcases my proficiency in 
 leveraging cutting-edge technologies to deliver impactful solutions.
- My portfolio reflects my passion for innovation and commitment to excellence in every endeavor.`}
+ My portfolio reflects my passion for innovation and commitment to excellence is in every endeavor.`}
             </p>
           </div>
           <div className="flex flex-wrap md:-m-2 -m-1">
