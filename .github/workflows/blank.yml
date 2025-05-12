@@ -1,0 +1,42 @@
+name: 🚀 Build & Deploy Next.js to Azure Web App
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  REGISTRY: nextjs2f5aa50a.azurecr.io
+  IMAGE: nextjs-app
+  WEBAPP_NAME: nextjs-web-b48035
+  RESOURCE_GROUP: nextjs-rg
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🔐 Login to Azure
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: 🔑 Login to ACR
+      uses: azure/docker-login@v2
+      with:
+        login-server: ${{ env.REGISTRY }}
+        username:     ${{ secrets.ACR_USERNAME }}
+        password:     ${{ secrets.ACR_PASSWORD }}
+
+    - name: 🛠️ Build and Push Docker image
+      run: |
+        docker build -t $REGISTRY/$IMAGE:${{ github.sha }} .
+        docker push    $REGISTRY/$IMAGE:${{ github.sha }}
+
+    - name: 🚀 Deploy to Azure Web App
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: ${{ env.WEBAPP_NAME }}
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.sha }}
