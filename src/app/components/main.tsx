@@ -7,10 +7,6 @@ function Mainpage() {
     <div>
       <Header />
       <Middel />
-<<<<<<< HEAD
-
-=======
->>>>>>> 529ea8b4 (first commit)
       <Footer />
     </div>
   );
