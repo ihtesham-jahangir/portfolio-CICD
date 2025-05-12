@@ -44,7 +44,7 @@ const IndexPage = () => {
         <div className="text-3xl text-gray-800 font-bold">
           <Typewriter
             options={{
-              strings: ["HELLO WORLD WELCOME TO MY PORTFOLIO"],
+              strings: ["HELLO WORLD WELCOME TO MY PORTFOLIO new"],
               autoStart: true,
               loop: false,
               delay: 10,
