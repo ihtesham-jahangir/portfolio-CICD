@@ -319,7 +319,6 @@ leveraging cutting-edge technologies to deliver impactful solutions.
           <Contact />
         </section>
         <section className="text-gray-600 body-font relative felx justify-center items-center pd-100" id="review">
-          <Reviews />
         </section>
         <section className="text-gray-600 body-font" id="about">
           <div className="container px-5 py-24 mx-auto">
